@@ -516,6 +516,10 @@ describe("Problema d'Omit i Pick", () => {
 describe("Problema de tipus de funció", () => {
 
   const addListener = (onFocusChange: (isFocused:boolean) => void) => {
+    if (typeof window === "undefined" || typeof window.addEventListener !== "function") {
+      return;
+    }
+
     window.addEventListener("focus", () => {
       onFocusChange(true);
     });
